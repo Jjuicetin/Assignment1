@@ -26,6 +26,29 @@ public final class Sorting {
 		}
 	}
 	
+	// bubble sort based on height
+	public static <T> void bubbleSortHeight(Comparable<T>[] array)
+	{
+		boolean sorted = false;
+		Comparable<T> temp;
+		while(!sorted)
+		{
+			sorted = true;
+			for ( int i = 0; i < array.length - 1 ; i++)
+			{
+				if(  array[i].compareTo((T) array[i + 1]) < 0) 
+				{
+					temp = array[i];
+					array[i] = array[i + 1];
+					array[i + 1]= temp;
+					sorted = false;
+					
+					
+				}
+			}
+		}
+	}
+	
 	public static <T> void insertionSort(Comparable<T> [] array) {
 
 		for (int i = 1; i < array.length; i++) {
