@@ -47,6 +47,12 @@ public final class Sorting {
 			}
 		}
 	}
+	/*
+	 * Method to sort shapeArray in insertion sort algorithm.
+	 * This version of insertionSort() can sort the shape array with height.
+	 * @param <T> array
+	 * 
+	 */
 	public static <T> void insertionSort(Comparable<T> [] array) {
 
 		for (int i = 1; i < array.length; i++) {
@@ -60,7 +66,25 @@ public final class Sorting {
 			array[j + 1] = key;
 			}
 	}
+	/*
+	 * Method to sort shapeArray in insertion sort algorithm.
+	 * This version of insertionSort() can sort the shape array with area or volume.
+	 * @param <T> array
+	 * @param compare class
+	 */
+	public static <T> void bavinsertionSort(Comparable<T> [] array, Comparator<? super T> compare) {
 
+		for (int i = 1; i < array.length; i++) {
+			Comparable<T> key = array[i]; //at second index as i (step)= 1 [1]([2])[3]
+			int j = i - 1; //at first index [0]            ([1])[2][3]
+			while (j >= 0 && compare.compare((T) key, (T)array[j]) > 0) { //j is 0 and key(1) is greater than 0
+		
+				array[j + 1] = array[j];
+			--j;
+			}
+			array[j + 1] = key;
+			}
+	}
 	
 	
 	// merge sort to compare height
@@ -230,45 +254,4 @@ public final class Sorting {
 }
    
 }
-
-
-
-	
-
-
-
-
-
-
-
-
-  
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	  
-  
-      
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	// merge sort 
 
