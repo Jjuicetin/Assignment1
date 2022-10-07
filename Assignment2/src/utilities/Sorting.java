@@ -26,39 +26,19 @@ public final class Sorting {
 		}
 	}
 	
+	public static <T> void insertionSort(Comparable<T> [] array) {
 
+		for (int i = 1; i < array.length; i++) {
+			Comparable<T> key = array[i]; //at second index as i (step)= 1 [1]([2])[3]
+			int j = i - 1; //at first index [0]            ([1])[2][3]
+			while (j >= 0 && key.compareTo((T) array[j]) > 0) { //j is 0 and key(1) is greater than 0
+			// For ascending order, change key> arr[j] to key< arr[j].
+				array[j + 1] = array[j];
+			--j;
+			}
+			array[j + 1] = key;
+			}
 	}
 	
-	// merge sort 
-	
-	
-  
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
-	  
-  
-      
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	// merge sort 
-
+	}
