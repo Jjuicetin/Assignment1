@@ -27,9 +27,25 @@ public final class Sorting {
 	}
 	
 
-	}
 	
-	// merge sort 
+	public static <T> void insertionSort(Comparable<T> [] array, Comparator<? super T> compare) {
+
+		int size = array.length;
+		for (int i = 1; i < size; i++) {
+		Comparable<T> key = array[i];
+		int j = i - 1; //0
+		while (j >= 0 && compare.compare( (T) array[i], (T) array[j] ) > 0) {
+		
+			array[j + 1] = array[j];
+		--j;
+		}
+		array[j + 1] = key;
+		}
+		}
+	
+	
+
+	}
 	
 	
   
