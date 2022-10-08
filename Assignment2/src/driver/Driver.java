@@ -33,11 +33,11 @@ public class Driver {
 	{    
 		    int count = 0;
 		    
-		    Scanner scan = new Scanner(System.in);  // Create a Scanner object
-		    System.out.println("Enter file you want to choose");
-		    String file = scan.nextLine();
-		    String filePath = "res/" + file;
-		    File fileObj = new File(filePath);
+		      String fileWithF = args[0].substring(1);
+		      String file = fileWithF.substring(1);
+		      
+		     
+		    
 		    if (file.equals("polyfor1.txt"))
 		    {
 		    	count = 20237;
@@ -50,7 +50,7 @@ public class Driver {
 		    {
 		    	count = 1078499;
 		    }
-		    if (file.equals("polyNameBIG.txt"))
+		    if (file.equals("fpolyNameBIG.txt"))
 		    {
 		    	count = 8388608;
 		    }
@@ -59,7 +59,7 @@ public class Driver {
 		    String line = " ";
 		   
 		    try {
-			BufferedReader br = new BufferedReader( new FileReader(filePath));
+			BufferedReader br = new BufferedReader( new FileReader(file));
 			
 			line = br.readLine();
 			StringTokenizer st = new StringTokenizer(line, " ");
@@ -154,43 +154,99 @@ public class Driver {
 		
 		
 			}
-		   // Shape s = new Shape();
-		 //  volumeCompare vc = new volumeCompare();
-		  // Sorting.bubbleSort(shapeArray, vc);
-		  // for(int i = 0; i < shapeArray.length; i = i + 1000)// print each element thoudsand value in between 
-		 // {
-		  // 	System.out.println( shapeArray[i].getShape() + " " + shapeArray[i].calcVolume());
-		  // }
-		    
-		    Arrays.sort(shapeArray);
-		    for(int i = 0; i < shapeArray.length; i = i + 1000)// print each element thoudsand value in between 
-				  {
-				   	System.out.println( shapeArray[i].getShape() + " " + shapeArray[i].getHeight());
-				   }
 		  
-		   
-		   // areaCompare ac = new areaCompare();
-		  //  Sorting.bubbleSort(shapeArray, ac);
-            //   for(int i = 0; i < shapeArray.length ; i = i + 1000	)
-             //  {
-            //	   System.out.println(shapeArray[i].getShape() + " " + shapeArray[i].calcBaseArea() );
-            	    
-            //   }
-            
-		    //System.out.println();
-			
-		   // System.out.println("Sort by grade: ");
-			//volumeCompare gc = new volumeCompare();
-			//Collections.sort(shapeArray);
-			
-          
-	}
+	// Selection sort by height
+		    if(args[1].equals("-Th") && args[2].equals("-Ss"))
+		    {
+		      
+              Sorting.selectionSortHeight(shapeArray);
+              for(int i = 0; i < shapeArray.length ; i = i + 1000	)
+              {
+             	  System.out.println(shapeArray[i].getShape() + " " + shapeArray[i].getHeight() );
+              }
+		    }
+	// Insertion sort by height		
+		    if(args[1].equals("-Th") && args[2].equals("-Si"))
+		    {
+		      
+              Sorting.insertionSort(shapeArray);
+              for(int i = 0; i < shapeArray.length ; i = i + 1000	)
+              {
+             	  System.out.println(shapeArray[i].getShape() + " " + shapeArray[i].getHeight() );
+              }
+		    }
+   // bubble sort by height
 		    
+		    if(args[1].equals("-Th") && args[2].equals("-Sb"))
+		    {
+		      
+              Sorting.bubbleSortHeight(shapeArray);
+              for(int i = 0; i < shapeArray.length ; i = i + 1000	)
+              {
+             	  System.out.println(shapeArray[i].getShape() + " " + shapeArray[i].getHeight() );
+              }
+		    }
+	// merge sort by height 
+		    if(args[1].equals("-Th") && args[2].equals("-Sm"))
+		    {
+		      
+              Sorting.mergeSortHeight(shapeArray);
+              for(int i = 0; i < shapeArray.length ; i = i + 1000	)
+              {
+             	  System.out.println(shapeArray[i].getShape() + " " + shapeArray[i].getHeight() );
+              }
+		    }
+	// Selection sort by volume
+		    if(args[1].equals("-Tv") && args[2].equals("-Ss"))
+		    {
+		      volumeCompare vc = new volumeCompare();
+              Sorting.selectionSort(shapeArray, vc);
+              for(int i = 0; i < shapeArray.length ; i = i + 1000	)
+              {
+             	  System.out.println(shapeArray[i].getShape() + " " + shapeArray[i].calcVolume() );
+              }
+		    }
+		    
+		
+		 // Insertion sort by volume
+		    if(args[1].equals("-Tv") && args[2].equals("-Si"))
+		    {
+		      volumeCompare vc = new volumeCompare();
+              Sorting.bavinsertionSort(shapeArray, vc);
+              for(int i = 0; i < shapeArray.length ; i = i + 1000	)
+              {
+             	  System.out.println(shapeArray[i].getShape() + " " + shapeArray[i].calcVolume() );
+              }
+		    }
+		 // Bubble sort by volume
+		    if(args[1].equals("-Tv") && args[2].equals("-Sb"))
+		    {
+		      volumeCompare vc = new volumeCompare();
+              Sorting.bubbleSort(shapeArray, vc);
+              for(int i = 0; i < shapeArray.length ; i = i + 1000	)
+              {
+             	  System.out.println(shapeArray[i].getShape() + " " + shapeArray[i].calcVolume() );
+              }
+		    }
+		    
+		 // Merge sort by volume
+		    if(args[1].equals("-Tv") && args[2].equals("-Sm"))
+		    {
+		      volumeCompare vc = new volumeCompare();
+              Sorting.mergeSort(shapeArray, vc);
+              for(int i = 0; i < shapeArray.length ; i = i + 1000	)
+              {
+             	  System.out.println(shapeArray[i].getShape() + " " + shapeArray[i].calcVolume() );
+              }
+		    }
+		    
+		    
+		    
+		    
+		    
+          
 	
-		
-		
-		
-
-	}
+}
+}
 
 
